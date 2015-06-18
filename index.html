@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Species Prediction Algorithm</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Species Prediction Algorithm">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Species Prediction Algorithm</h1>
+    <h2>A shiny app to predict flower species</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This app will predict the species of a flower based on its sepal length and width 
+and petal length and width in centimeters. This is done based on a prediction algorithm 
+trained on the IRIS dataset,with linear discriminant analysis 
+method and train function from the caret package.  </p>
+
+<p>The  iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.  </p>
+
+<p>Consequently, any new flower will be fit into one of the three species.  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Exploratory Analysis</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+<p>The plots display Species by Sepal width + length and Petal width + length combination. showing high correlation between these measurements and the species. These variables can be used in prediction model. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Prediction Algorithm</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Prediction will be done using Linear Discriminant Analysis. The table below shows the result of prediction vs actual Species on the test data set. The accuracy rate of prediction is high.</p>
+
+<pre><code>##             
+## pred         setosa versicolor virginica
+##   setosa         15          0         0
+##   versicolor      0         15         0
+##   virginica       0          0        15
+</code></pre>
+
+<h3>To classify a new flower, its measurements have to be plugged into the model</h3>
+
+<p>For example:<br>
+Sepal.Length=5.0,Sepal.Width=3.0,Petal.Length=1.0,Petal.Width=0.5</p>
+
+<pre><code class="r">predict(modelfit, data.frame(Sepal.Length=5.0, Sepal.Width=3.0,Petal.Length=1.0,Petal.Width=0.5))
+</code></pre>
+
+<pre><code>## [1] setosa
+## Levels: setosa versicolor virginica
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The shiny app below, will classify a flower based on the measurements entered by the user, using
+the prediction algorithm described.</p>
+
+<p><a href="https://hiranmayv.shinyapps.io/SpeciesPrediction">https://hiranmayv.shinyapps.io/SpeciesPrediction</a> </p>
+
+<p>The code is available in ui.R and server.R files available at :
+<a href="https://github.com/hiranmayv/DevelopingDataProducts">https://github.com/hiranmayv/DevelopingDataProducts</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Exploratory Analysis'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Prediction Algorithm'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Shiny App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
