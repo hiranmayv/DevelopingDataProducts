@@ -10,8 +10,8 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---  
-
-
+  
+  
 ## Introduction  
 
 This app will predict the species of a flower based on its sepal length and width 
@@ -25,7 +25,7 @@ Consequently, any new flower will be fit into one of the three species.
 
 --- .class #id
   
-
+  
 ## Exploratory Analysis    
 
 
@@ -36,11 +36,11 @@ The plots display Species by Sepal width + length and Petal width + length combi
 
 
 --- .class #id
-
-
+  
+  
 ## Prediction Algorithm
 
-Prediction will be done using Linear Discriminant Analysis. The table below shows the result of prediction vs actual Species on the test data set. The accuracy rate of prediction is high.
+Prediction will be done using a model based on Linear Discriminant Analysis. The table below shows the result of prediction vs actual Species on the test data set. The accuracy rate of prediction is high.
 
 
 ```
@@ -52,7 +52,7 @@ Prediction will be done using Linear Discriminant Analysis. The table below show
 ```
   
   
-### To classify a new flower, its measurements have to be plugged into the model   
+# To classify a new flower, its measurements have to be plugged into the model   
 
 For example:  
 Sepal.Length=5.0,Sepal.Width=3.0,Petal.Length=1.0,Petal.Width=0.5
@@ -68,6 +68,7 @@ predict(modelfit, data.frame(Sepal.Length=5.0, Sepal.Width=3.0,Petal.Length=1.0,
 
 
 --- .class #id
+
 
 ## Shiny App
  
